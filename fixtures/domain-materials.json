@@ -1,0 +1,232 @@
+{
+  "title": "互助照护的共访服务量与代班补偿",
+  "source_note": "全部机构、事件、人员、规则和数值均为人工构造的本地合成资料。",
+  "contract": "文件中的日期和时间均以当地时间 UTC+08:00 表示。minutes 是分钟，money_cents 是分。reservation.site 是建单时站点，assignment 是居民转站的有效起点。shift.accepted 是实际接班承诺的时刻。attendance 的空退出表示未核实。qualification 给出人员授权等级，policy 给需求层标准权重、补偿单价以及临时取消起步补偿。",
+  "tables": {
+    "assignment": [
+      {
+        "resident": "R01",
+        "site": "East",
+        "effective": "2026-09-01T00:00"
+      },
+      {
+        "resident": "R01",
+        "site": "West",
+        "effective": "2026-10-15T09:40"
+      },
+      {
+        "resident": "R02",
+        "site": "West",
+        "effective": "2026-09-01T00:00"
+      },
+      {
+        "resident": "R03",
+        "site": "East",
+        "effective": "2026-09-01T00:00"
+      }
+    ],
+    "reservation": [
+      {
+        "id": "V01",
+        "resident": "R01",
+        "site": "East",
+        "need": "pair",
+        "date": "2026-10-15",
+        "from": "09:00",
+        "to": "10:20",
+        "canceled": "~"
+      },
+      {
+        "id": "V02",
+        "resident": "R02",
+        "site": "West",
+        "need": "solo",
+        "date": "2026-10-15",
+        "from": "11:00",
+        "to": "11:30",
+        "canceled": "10:47"
+      },
+      {
+        "id": "V03",
+        "resident": "R03",
+        "site": "East",
+        "need": "solo",
+        "date": "2026-10-16",
+        "from": "08:30",
+        "to": "09:00",
+        "canceled": "~"
+      },
+      {
+        "id": "V04",
+        "resident": "R01",
+        "site": "West",
+        "need": "pair",
+        "date": "2026-11-02",
+        "from": "14:00",
+        "to": "15:00",
+        "canceled": "~"
+      },
+      {
+        "id": "V05",
+        "resident": "R02",
+        "site": "West",
+        "need": "solo",
+        "date": "2026-09-14",
+        "from": "11:00",
+        "to": "11:30",
+        "canceled": "~"
+      },
+      {
+        "id": "V06",
+        "resident": "R03",
+        "site": "East",
+        "need": "pair",
+        "date": "2026-09-13",
+        "from": "10:00",
+        "to": "10:45",
+        "canceled": "~"
+      }
+    ],
+    "qualification": [
+      {
+        "volunteer": "P1",
+        "grade": "pair"
+      },
+      {
+        "volunteer": "P2",
+        "grade": "pair"
+      },
+      {
+        "volunteer": "P3",
+        "grade": "solo"
+      },
+      {
+        "volunteer": "P4",
+        "grade": "pair"
+      }
+    ],
+    "shift": [
+      {
+        "visit": "V01",
+        "original": "P2",
+        "substitute": "P4",
+        "accepted": "2026-10-15T09:20",
+        "departed": "2026-10-15T09:25"
+      },
+      {
+        "visit": "V02",
+        "original": "P1",
+        "substitute": "P3",
+        "accepted": "2026-10-15T10:30",
+        "departed": "2026-10-15T10:40"
+      }
+    ],
+    "attendance": [
+      {
+        "id": "A01",
+        "visit": "V01",
+        "volunteer": "P1",
+        "in": "09:00",
+        "out": "10:15",
+        "filed": "2026-10-15"
+      },
+      {
+        "id": "A02",
+        "visit": "V01",
+        "volunteer": "P2",
+        "in": "09:05",
+        "out": "09:37",
+        "filed": "2026-10-15"
+      },
+      {
+        "id": "A03",
+        "visit": "V01",
+        "volunteer": "P4",
+        "in": "09:33",
+        "out": "~",
+        "filed": "2026-10-15"
+      },
+      {
+        "id": "A04",
+        "visit": "V03",
+        "volunteer": "P3",
+        "in": "08:30",
+        "out": "08:55",
+        "filed": "2026-10-16"
+      },
+      {
+        "id": "A05",
+        "visit": "V05",
+        "volunteer": "P3",
+        "in": "11:04",
+        "out": "11:29",
+        "filed": "2026-09-14"
+      },
+      {
+        "id": "A06",
+        "visit": "V06",
+        "volunteer": "P1",
+        "in": "10:02",
+        "out": "10:43",
+        "filed": "2026-09-13"
+      },
+      {
+        "id": "A07",
+        "visit": "V06",
+        "volunteer": "P2",
+        "in": "10:00",
+        "out": "10:46",
+        "filed": "2026-09-13"
+      }
+    ],
+    "amendment": [
+      {
+        "attendance": "A03",
+        "known_on": "2026-11-04",
+        "corrected_out": "10:08"
+      }
+    ],
+    "policy": [
+      {
+        "need": "solo",
+        "weight": "0.55",
+        "per_minute_cents": "70",
+        "cancellation_cents": "1200"
+      },
+      {
+        "need": "pair",
+        "weight": "0.45",
+        "per_minute_cents": "90",
+        "cancellation_cents": "1200"
+      }
+    ],
+    "ledger": [
+      {
+        "month": "2026-10",
+        "id": "L1",
+        "visit": "V01",
+        "payee": "P2",
+        "money_cents": "980",
+        "status": "paid"
+      },
+      {
+        "month": "2026-10",
+        "id": "L2",
+        "visit": "V02",
+        "payee": "P3",
+        "money_cents": "1200",
+        "status": "paid"
+      }
+    ],
+    "fund": [
+      {
+        "month": "2026-10",
+        "capacity_cents": "4400"
+      },
+      {
+        "month": "2026-11",
+        "capacity_cents": "4800"
+      }
+    ]
+  }
+}
